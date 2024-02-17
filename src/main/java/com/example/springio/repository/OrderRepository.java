@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Component
 @ComponentScan
 @Repository
-public  interface OrderRepository extends CrudRepository<Order, Integer> {
+public interface OrderRepository extends CrudRepository<Order, Integer> {
 }

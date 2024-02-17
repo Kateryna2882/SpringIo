@@ -1,17 +1,15 @@
-package com.example.springio.entity;
+package com.example.springio.dto;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
-@Data
 @AllArgsConstructor
+@Data
 @Builder
-public class Product {
-    @Id
+public class ProductDto {
     private int id;
     private String name;
     private int price;
-    private int orderId;
 }

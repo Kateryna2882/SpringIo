@@ -1,20 +1,42 @@
 package com.example.springio.controller;
 
-import com.example.springio.entity.Order;
+import com.example.springio.dto.OrderDto;
+import com.example.springio.dto.ProductDto;
 import com.example.springio.service.OrderService;
+import com.example.springio.service.ProductService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/orders")
 @AllArgsConstructor
 public class OrderController {
-    private final OrderService orderService;
+
+    private OrderService orderService;
+    private ProductService productService;
+
+    @GetMapping("/{id}")
+    public OrderDto getById(@PathVariable int id) {
+        return this.orderService.getById(id);
+    }
+
+    @PutMapping
+    public void update(@RequestBody OrderDto orderDto) {
+        orderService.update(orderDto);
+    }
+
     @PostMapping
-    public Order save(@RequestBody Order order){
+    public OrderDto save(@RequestBody OrderDto order) {
         return orderService.save(order);
+    }
+
+    @PostMapping("{orderId}/products")
+    public ProductDto addProduct(@PathVariable int orderId, @RequestBody ProductDto productDto) {
+        return productService.save(productDto, orderId);
+    }
+
+    @DeleteMapping("/{id}")
+    public void remove(@PathVariable int id) {
+
     }
 }
