@@ -1,13 +1,13 @@
 package com.example.springio.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 @AllArgsConstructor
 @Data
 @Builder
+@Setter
+@NoArgsConstructor
 public class ProductDto {
     private int id;
     private String name;

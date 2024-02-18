@@ -1,14 +1,14 @@
 package com.example.springio.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
 @AllArgsConstructor
 @Data
 @Builder
+@Setter
+@NoArgsConstructor
 public class OrderDto {
     private int id;
     private String owner;
