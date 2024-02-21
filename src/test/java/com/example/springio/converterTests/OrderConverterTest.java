@@ -5,9 +5,12 @@ import com.example.springio.converter.OrderConverter;
 import org.junit.jupiter.api.Test;
 import com.example.springio.dto.OrderDto;
 import com.example.springio.entity.Order;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import java.sql.Date;
 import java.time.LocalDate;
 
+@SpringBootTest
 public class OrderConverterTest {
 
     @Test
@@ -35,6 +38,6 @@ public class OrderConverterTest {
 
         assertEquals(orderDto.getId(), order.getId());
         assertEquals(orderDto.getOwner(), order.getOwner());
-        assertEquals(Date.valueOf(LocalDate.now()), order.getCreationDate());
+        assertEquals(Date.valueOf(LocalDate.now()), order.getCreatedDate());
     }
 }

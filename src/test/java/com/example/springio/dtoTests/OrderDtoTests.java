@@ -1,8 +1,12 @@
-package com.example.springio.DtoTests;
+package com.example.springio.dtoTests;
+
 import com.example.springio.dto.OrderDto;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class OrderDtoTests {
 
     @Test

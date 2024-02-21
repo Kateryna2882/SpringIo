@@ -12,7 +12,6 @@ import java.util.Collections;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
 
 @SpringBootTest
 class ProductServiceTests {
@@ -49,6 +48,7 @@ class ProductServiceTests {
     @Test
     void testRemoveByOrderId() {
         productService.removeByOrderId(1);
-        Mockito.verify(productRepository, Mockito.times(1)).deleteAllByOrderId(1);
+        Mockito.verify(productRepository, Mockito.times(1))
+                .deleteAllByOrderId(1);
     }
 }

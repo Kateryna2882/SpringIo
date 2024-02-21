@@ -1,8 +1,10 @@
 package com.example.springio.exeptionTests;
 import com.example.springio.exeption.OrderNotFoundException;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.*;
+@SpringBootTest
 public class OrderNotFoundExceptionTest {
 
     @Test

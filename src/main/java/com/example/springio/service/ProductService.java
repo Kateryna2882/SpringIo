@@ -8,21 +8,25 @@ import com.example.springio.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
 public class ProductService {
     private ProductRepository productRepository;
 
-
     public List<ProductDto> saveAll(List<ProductDto> products, int orderId) {
-        return Optional.ofNullable(products)
-                .map(productDtos -> productDtos.stream()
-                        .map(p -> save(p, orderId)).toList())
-                .orElse(List.of());
+        if (products == null) {
+            return Collections.emptyList();
+        }
+        return products.stream()
+                .map(p -> save(p, orderId))
+                .collect(Collectors.toList());
     }
+
+
 
     public ProductDto save(ProductDto product, int orderId) {
 

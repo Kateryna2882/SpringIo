@@ -15,6 +15,6 @@ public class OrderConverter {
 
     public static Order toOrder(OrderDto orderDto) {
         return Order.builder().id(orderDto.getId()).owner(orderDto.getOwner())
-                .creationDate(Date.valueOf(LocalDate.now())).build();
+                .createdDate(Date.valueOf(LocalDate.now())).build();
     }
 }

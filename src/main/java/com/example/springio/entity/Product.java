@@ -1,19 +1,28 @@
 package com.example.springio.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import javax.persistence.*;
+
+import lombok.*;
 
 @Data
 @AllArgsConstructor
-@Builder
 @NoArgsConstructor
+@Builder
+@Table(name = "product")
+@Entity
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
-    private int price;
+    private Integer price;
+
+    @Column(name = "order_Id")
     private int orderId;
+
+    public Product(String name, int orderId) {
+        this.name = name;
+        this.orderId = orderId;
+    }
 }

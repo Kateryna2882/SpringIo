@@ -45,7 +45,7 @@ class OrderServiceTests {
     void testUpdate() {
         OrderDto orderDto = new OrderDto();
         orderDto.setId(1);
-        Mockito.when(orderRepository.findById(anyInt())).thenReturn(Optional.of(OrderConverter.toOrder(orderDto)));
+        Mockito.when(orderRepository.findById( anyInt())).thenReturn(Optional.of(OrderConverter.toOrder(orderDto)));
         orderService.update(orderDto);
         Mockito.verify(orderRepository, Mockito.times(1)).save(Mockito.any());
     }

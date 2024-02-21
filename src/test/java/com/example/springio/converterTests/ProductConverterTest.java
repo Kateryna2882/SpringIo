@@ -3,8 +3,11 @@ import com.example.springio.converter.ProductConverter;
 import com.example.springio.dto.ProductDto;
 import com.example.springio.entity.Product;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SpringBootTest
 public class ProductConverterTest {
 
     @Test
